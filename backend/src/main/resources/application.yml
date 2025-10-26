@@ -35,7 +35,6 @@ spring:
       separator: ;
       encoding: UTF-8
       platform: h2
-      schema-locations: classpath:schema.sql
 
 # Server Configuration
 server:
