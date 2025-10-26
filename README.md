@@ -6,7 +6,7 @@ A full-stack competitive programming platform built with Spring Boot and Next.js
 
 ### Prerequisites
 
-- Docker & Docker Compose
+- Docker & Docker Compose 
 - Java 17+ (for local backend development)
 - Node.js 18+ (for local frontend development)
 - Maven 3.6+ (for local backend development)
@@ -33,11 +33,60 @@ docker-compose down
 
 ### Access the Application
 
+#### Production URLs
+- **Frontend**: https://shodh-contest-platform-frontend.vercel.app/
+- **Backend API**: https://shodh-contest-platform-2.onrender.com/api
+- **Health Check**: https://shodh-contest-platform-2.onrender.com/api/health
+
+#### Local Development
 - **Frontend**: http://localhost:3000
 - **Backend API**: http://localhost:8080/api
 - **Health Check**: http://localhost:8080/api/health
 - **Database**: localhost:5432 (PostgreSQL)
 - **Redis**: localhost:6379
+
+### 🧪 Sample Data & Test Endpoints
+
+The application comes pre-loaded with sample data for testing:
+
+#### Sample Users
+- **Username**: `testuser` | **Password**: `password`
+- **Username**: `admin` | **Password**: `password`
+
+#### Sample Contest
+- **Contest ID**: `1`
+- **Title**: "Shodh Coding Contest 2024"
+- **Status**: ACTIVE
+
+#### Sample Problems
+1. **Sum of Two Numbers** (EASY - 100 points)
+2. **Fibonacci Sequence** (MEDIUM - 200 points)
+3. **Binary Search** (HARD - 300 points)
+
+#### Test Endpoints
+- **Database Verification**: `GET https://shodh-contest-platform-2.onrender.com/api/test-database`
+- **Login Information**: `GET https://shodh-contest-platform-2.onrender.com/api/login-info`
+- **H2 Console**: `https://shodh-contest-platform-2.onrender.com/h2-console` (if accessible)
+
+### 🚀 Quick Start (Production)
+
+1. **Visit the Frontend**: https://shodh-contest-platform-frontend.vercel.app/
+2. **Enter Contest ID**: `1`
+3. **Enter Username**: `testuser` or `admin`
+4. **Click "Join Contest"**
+5. **Start coding!** Select a problem and submit your solution
+
+### 🔍 Verify Database Population
+
+Test these endpoints to confirm your database is populated:
+
+```bash
+# Check if database has sample data
+curl https://shodh-contest-platform-2.onrender.com/api/test-database
+
+# Get login information
+curl https://shodh-contest-platform-2.onrender.com/api/login-info
+```
 
 ### Local Development
 
