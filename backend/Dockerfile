@@ -1,11 +1,14 @@
-# Final working Dockerfile - uses only standard images
-FROM openjdk:17-jdk
+# Final working Dockerfile - uses Ubuntu base with OpenJDK
+FROM ubuntu:22.04
 
-# Install Maven
+# Install OpenJDK 17 and Maven
 RUN apt-get update && \
-    apt-get install -y maven && \
+    apt-get install -y openjdk-17-jdk maven && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
+
+# Set JAVA_HOME
+ENV JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
 
 # Set working directory
 WORKDIR /app
