@@ -8,13 +8,13 @@ INSERT INTO users (id, username, email, password_hash, created_at) VALUES
 
 -- Insert sample contest
 INSERT INTO contests (id, title, description, start_time, end_time, status, created_at) VALUES 
-(1, 'Shodh Coding Contest 2024', 'Annual coding competition for students', '2024-01-01 10:00:00', '2024-01-01 18:00:00', 'ACTIVE', CURRENT_TIMESTAMP);
+(1, 'Shodh Coding Contest 2024', 'Annual coding competition for students - Test your programming skills with algorithmic challenges!', '2024-01-01 10:00:00', '2024-12-31 23:59:59', 'ACTIVE', CURRENT_TIMESTAMP);
 
 -- Insert sample questions
 INSERT INTO questions (id, title, description, difficulty, points, time_limit_seconds, memory_limit_mb, contest_id, created_at) VALUES 
-(1, 'Sum of Two Numbers', 'Given two integers a and b, return their sum.', 'EASY', 100, 2, 256, 1, CURRENT_TIMESTAMP),
-(2, 'Fibonacci Sequence', 'Calculate the nth Fibonacci number.', 'MEDIUM', 200, 3, 512, 1, CURRENT_TIMESTAMP),
-(3, 'Binary Search', 'Implement binary search algorithm.', 'HARD', 300, 5, 1024, 1, CURRENT_TIMESTAMP);
+(1, 'Sum of Two Numbers', 'Given two integers a and b, return their sum.\n\nInput: Two integers a and b\nOutput: Print the sum of a and b\n\nExample:\nInput: 5 10\nOutput: 15', 'EASY', 100, 2, 256, 1, CURRENT_TIMESTAMP),
+(2, 'Fibonacci Sequence', 'Calculate the nth Fibonacci number.\n\nInput: An integer n (0 ≤ n ≤ 30)\nOutput: Print the nth Fibonacci number\n\nExample:\nInput: 5\nOutput: 5', 'MEDIUM', 200, 3, 512, 1, CURRENT_TIMESTAMP),
+(3, 'Binary Search', 'Implement binary search algorithm.\n\nInput: A sorted array and a target value\nOutput: Print the index of target, or -1 if not found\n\nExample:\nInput: 5\n1 2 3 4 5\n3\nOutput: 2', 'HARD', 300, 5, 1024, 1, CURRENT_TIMESTAMP);
 
 -- Insert sample test cases
 INSERT INTO test_cases (id, question_id, input_data, expected_output, is_sample, created_at) VALUES 
