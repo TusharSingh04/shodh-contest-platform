@@ -54,8 +54,18 @@ public class TestController {
         } catch (Exception e) {
             result.put("status", "ERROR");
             result.put("message", "Database error: " + e.getMessage());
+            result.put("error_details", e.toString());
         }
         
+        return result;
+    }
+
+    @GetMapping("/debug")
+    public Map<String, Object> debug() {
+        Map<String, Object> result = new HashMap<>();
+        result.put("message", "Backend is working!");
+        result.put("timestamp", java.time.LocalDateTime.now());
+        result.put("status", "OK");
         return result;
     }
 

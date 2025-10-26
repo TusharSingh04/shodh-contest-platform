@@ -2,8 +2,7 @@ package com.shodh.contestplatform.controller;
 
 import com.shodh.contestplatform.model.Contest;
 import com.shodh.contestplatform.model.Question;
-import com.shodh.contestplatform.repository.ContestRepository;
-import com.shodh.contestplatform.repository.QuestionRepository;
+import com.shodh.contestplatform.service.ContestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -18,15 +17,12 @@ import java.util.Optional;
 public class ContestController {
 
     @Autowired
-    private ContestRepository contestRepository;
-
-    @Autowired
-    private QuestionRepository questionRepository;
+    private ContestService contestService;
 
     @GetMapping("/contests/{contestId}")
     public ResponseEntity<Map<String, Object>> getContest(@PathVariable Long contestId) {
         try {
-            Optional<Contest> contestOpt = contestRepository.findById(contestId);
+            Optional<Contest> contestOpt = contestService.getContestById(contestId);
             if (contestOpt.isEmpty()) {
                 Map<String, Object> response = new HashMap<>();
                 response.put("error", "Contest not found");
@@ -34,7 +30,7 @@ public class ContestController {
             }
 
             Contest contest = contestOpt.get();
-            List<Question> questions = questionRepository.findByContestId(contestId);
+            List<Question> questions = contestService.getQuestionsByContestId(contestId);
 
             Map<String, Object> response = new HashMap<>();
             response.put("id", contest.getId());
@@ -56,7 +52,7 @@ public class ContestController {
     @GetMapping("/contests")
     public ResponseEntity<List<Contest>> getAllContests() {
         try {
-            List<Contest> contests = contestRepository.findAll();
+            List<Contest> contests = contestService.getAllContests();
             return ResponseEntity.ok(contests);
         } catch (Exception e) {
             return ResponseEntity.internalServerError().build();
