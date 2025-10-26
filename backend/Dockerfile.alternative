@@ -1,5 +1,5 @@
-# Multi-stage build for Spring Boot application
-FROM maven:3.9.6-eclipse-temurin-17-slim AS build
+# Alternative Dockerfile with more reliable base images
+FROM maven:3.9.6-openjdk-17 AS build
 
 # Set working directory
 WORKDIR /app
@@ -17,7 +17,7 @@ COPY src ./src
 RUN mvn clean package -DskipTests
 
 # Runtime stage
-FROM eclipse-temurin:17-jdk-slim
+FROM openjdk:17-jdk-slim
 
 # Set working directory
 WORKDIR /app
