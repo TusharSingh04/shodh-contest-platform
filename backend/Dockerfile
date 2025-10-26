@@ -1,11 +1,5 @@
-# Multi-stage build for Spring Boot application
-FROM openjdk:17-jdk AS build
-
-# Install Maven
-RUN apt-get update && \
-    apt-get install -y maven && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/*
+# Simple Dockerfile using official Maven image
+FROM maven:3.9.6-openjdk-17 AS build
 
 # Set working directory
 WORKDIR /app
