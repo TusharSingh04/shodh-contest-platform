@@ -6,7 +6,7 @@ A full-stack competitive programming platform built with Spring Boot and Next.js
 
 ### Prerequisites
 
-- Docker & Docker Compose
+- Docker & Docker Compose 
 - Java 17+ (for local backend development)
 - Node.js 18+ (for local frontend development)
 - Maven 3.6+ (for local backend development)
